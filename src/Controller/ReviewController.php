@@ -51,7 +51,7 @@ class ReviewController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($review);
             $em->flush();
-            return $this->redirectToRoute('review');
+            return $this->redirectToRoute('freelancers');
         }
 
         return $this->render('review/add.html.twig', ['form' => $form->createView()]);

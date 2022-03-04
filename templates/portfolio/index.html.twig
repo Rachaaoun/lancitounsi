@@ -1,20 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello PortfolioController!{% endblock %}
+
+
+
 {% block content %}
+    <!-- Add Portfolio Model Start -->
+
+    <!-- Add Portfolio Model End -->
+    <!-- Body Start -->
     <main class="browse-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-4">
                     <div class="account_dt_left">
                         <div class="job-center-dt">
-                            <img src="images/homepage/candidates/img-7.jpg" alt="">
+                            <img src="images/homepage/candidates/img-1.jpg" alt="">
                             <div class="job-urs-dts">
                                 <div class="dp_upload">
                                     <input type="file" id="file">
                                     <label for="file">Upload Photo</label>
                                 </div>
                                 <h4>{{app.user.email}}</h4>
+                                <span>UX Designer</span>
+                                <div class="avialable">Available Full Time<a href="#"><i class="far fa-edit"></i></a></div>
                             </div>
                         </div>
                         <div class="my_websites">
@@ -116,85 +125,80 @@
                         <div class="account_hd_left">
                             <h2>Manage Your Account</h2>
                         </div>
-                        <div class="account_hd_right">
-                            <a href="#" class="main_lg_btn">Logout</a>
-                        </div>
+
                     </div>
                     <div class="account_tabs">
                         <ul class="nav nav-tabs">
                             <li class="nav-item">
-                                <a class="nav-link" href="company_dashboard.html">Dashboard</a>
+                                <a class="nav-link" href="my_freelancer_dashboard.html">Dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href={"company_profile.html">Profile</a>
+                                <a class="nav-link" href="/my_freelancer_profile">Profile</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="company_members.html">Members</a>
+                                <a class="nav-link active" href="{{ path('liste') }}">Portfolio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="company_notifications.html">Notifications</a>
+                                <a class="nav-link" href="my_freelancer_notifications.html">Notifications</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="company_messages.html">Messages</a>
+                                <a class="nav-link" href="my_freelancer_messages.html">Messages</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="company_bookmarks.html">Bookmarks</a>
+                                <a class="nav-link" href="my_freelancer_bookmarks.html">Bookmarks</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="company_jobs.html">Jobs</a>
+                                <a class="nav-link" href="my_freelancer_jobs.html">Jobs</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="company_bids.html">Bids</a>
+                                <a class="nav-link" href="my_freelancer_bids.html">Bids</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="company_reviews.html">Reviews</a>
+                                <a class="nav-link" href="{{ path('review') }}">Reviews</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="company_payments.html">Payment</a>
+                                <a class="nav-link" href="my_freelancer_payments.html">Payment</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="company_setting.html"><i class="fas fa-cog"></i></a>
+                                <a class="nav-link" href="my_freelancer_setting.html"><i class="fas fa-cog"></i></a>
                             </li>
                         </ul>
                     </div>
-                    <a href="#" class="edit_link_profile"><i class="far fa-edit"></i>Edit Profile</a>
-                    <div class="view_chart">
-                        <div class="view_chart_header">
-                            <h4>About</h4>
+                    <div class="portfolio_heading">
+                        <div class="portfolio_left">
+                            <h4>Portfolio</h4>
                         </div>
-                        <div class="view_chart_body">
-                            <p class="user_about_des">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis accumsan mi. Nam nulla lorem, consectetur eu augue nec, laoreet viverra augue. Curabitur quis nisi nec enim tempor tincidunt sit amet eu elit. Aliquam metus massa, vehicula vel nisi quis, eleifend hendrerit velit. Maecenas nunc nunc, ultricies non accumsan sit amet, varius non dui. Pellentesque ipsum justo, mollis et posuere at, viverra porta nisl. Cras accumsan cursus tellus luctus congue. Maecenas sed feugiat dolor. In ipsum sapien, congue vitae congue ac, cursus nec mauris. Integer fringilla mi urna, id efficitur ligula interdum quis. Ut vehicula imperdiet elit, quis condimentum est aliquam ac. Nunc tortor elit, imperdiet ac tellus ut, accumsan interdum dui. Duis fermentum tincidunt massa, sodales tempus sapien euismod quis. Vestibulum suscipit ex ex, nec euismod leo eleifend eget. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer tincidunt sodales augue, ut consequat libero blandit non. Suspendisse id dolor vel lorem bibendum luctus sit amet a odio. Vestibulum varius viverra ipsum quis rhoncus. Praesent bibendum dictum ex. Quisque eu laoreet leo.</p>
-                        </div>
-                    </div>
-                    <div class="view_chart">
-                        <div class="view_chart_header">
-                            <h4>Skills</h4>
-                        </div>
-                        <div class="view_chart_body">
-                            <div class="job-skills">
-                                <a href="#">HTML</a>
-                                <a href="#">CSS</a>
-                                <a href="#">Wordpress</a>
-                                <a href="#">Javascript</a>
-                                <a href="#">Jquery</a>
-                                <a href="#">Plugins</a>
-                            </div>
+                        <div class="portfolio_right">
+                      <a href="/ajout_portfolio"    data-target="#addportfolioModal" ><button class="add_portfolio_btn" type="button" data-toggle="modal" data-target="#addportfolioModal">Add Portfolio</button></a>
                         </div>
                     </div>
-                    <div class="view_chart">
-                        <div class="view_chart_header">
-                            <h4>Language</h4>
-                        </div>
-                        <div class="view_chart_body">
-                            <div class="job-skills">
-                                <a href="#" class="more-skills">English</a>
-                                <a href="#" class="more-skills">Punjabi</a>
-                                <a href="#" class="more-skills">Hindi</a>
+                    <div class="dsh150">
+                        <div class="row">
+                            {% for i in portfolio %}
+                            <div class="col-lg-4">
+                                <div class="portfolio_item">
+                                    <div class="portfolio_img">
+                                        <img  height="400"  src="{{ asset('uploads/' ~ i.image) }}" alt="">
+                                        <div class="portfolio_overlay">
+                                            <div class="overlay_items">
+                                                <a href="{{ path('Update',{'id':i.id}) }}" target="_blank"><i class="fas fa-external-link-alt"></i>Modify</a>
+                                                <a href="{{ path('delete_admin',{'id':i.id}) }}"> <button class="delete_portfolio_btn"><i class="far fa-trash-alt"></i></button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="portfolio_title"><i class="fas fa-image"></i>{{ i.title }}</div>
+                                </div>
                             </div>
+                            {% endfor %}
+
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+    <!-- Body End -->
+
 {% endblock %}
