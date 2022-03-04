@@ -10,13 +10,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
+use Swift_Mailer;
 
 class ReviewController extends AbstractController
 {
 
-    public function __construct(Security $security)
+    private $mailer;
+    public function __construct(Security $security,Swift_Mailer $mailer)
     {
         $this->security = $security;
+        $this->mailer = $mailer;
     }
 
 
@@ -49,7 +52,7 @@ class ReviewController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $review->setUser($user);
 
-            $message = (new \Swift_Message('Hello Email'))
+        $message = (new \Swift_Message('Hello Email'))
         ->setFrom('racha.aoun@esprit.tn')
         ->setTo('racha.aoun@hotmail.com')
         ->setBody(
