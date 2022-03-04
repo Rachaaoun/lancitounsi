@@ -11,13 +11,15 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 
-
 class ReviewController extends AbstractController
 {
+
     public function __construct(Security $security)
     {
         $this->security = $security;
     }
+
+
 
     /**
      * @Route("/review", name="review")
@@ -35,7 +37,7 @@ class ReviewController extends AbstractController
     /**
      * @Route("/add_review", name="add_review")
      */
-    public function addReview(Request $request): Response
+    public function addReview(Request $request, \Swift_Mailer $mailer): Response
     {
         $review = new Review();
         $user = $this->security->getUser();
@@ -47,7 +49,18 @@ class ReviewController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $review->setUser($user);
 
-
+            $message = (new \Swift_Message('Hello Email'))
+        ->setFrom('racha.aoun@esprit.tn')
+        ->setTo('racha.aoun@hotmail.com')
+        ->setBody(
+            $this->renderView(
+                // templates/hello/email.txt.twig
+                'user/email.txt.twig',
+                ['name' => 'racha' ]
+            )
+        )
+    ;
+    $mailer->send($message);
             $em = $this->getDoctrine()->getManager();
             $em->persist($review);
             $em->flush();
