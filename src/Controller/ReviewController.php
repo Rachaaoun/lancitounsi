@@ -54,7 +54,7 @@ class ReviewController extends AbstractController
 
         $message = (new \Swift_Message('Hello Email'))
         ->setFrom('racha.aoun@esprit.tn')
-        ->setTo('racha.aoun@hotmail.com')
+        ->setTo($user->getEmail())
         ->setBody(
             $this->renderView(
                 // templates/hello/email.txt.twig
